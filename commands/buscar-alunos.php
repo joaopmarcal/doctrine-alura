@@ -20,7 +20,7 @@ foreach ($alunoList as $aluno){
 $nico = $alunoRepository->find(3);
 echo $nico->getNome();
 
-$sergioLopes = $alunoRepository->findOneBy([
+$sergioLopes = $alunoRepository->findBy([
    'nome' => 'Sergio Lopes'
 ]);
 echo "<pre>";
