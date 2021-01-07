@@ -14,12 +14,8 @@ $alunosRepository = $entityManager->getRepository(Aluno::class);
 
 $debugStack = new DebugStack();
 $entityManager->getConfiguration()->setSQLLogger($debugStack);
-
-$classeAluno = Aluno::class;
-$dql = "SELECT a, t, c FROM $classeAluno a JOIN a.telefones t JOIN a.cursos c";
-$query = $entityManager->createQuery($dql);
 /** @var Aluno[] $alunos */
-$alunos = $query->getResult();
+$alunos = $alunosRepository->buscarCursosPorAluno();
 
 foreach ($alunos as $aluno) {
     $telefones = $aluno
